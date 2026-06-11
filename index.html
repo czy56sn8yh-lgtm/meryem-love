@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meryem ❤️</title>
+
+<style>
+body{
+margin:0;
+background:linear-gradient(135deg,#ff5f9e,#ff9fc3);
+font-family:Arial;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+h1{
+margin-top:80px;
+font-size:50px;
+}
+
+p{
+font-size:22px;
+}
+
+button{
+padding:15px 25px;
+border:none;
+border-radius:20px;
+font-size:18px;
+font-weight:bold;
+}
+</style>
 </head>
+
 <body>
+
 <h1>Meryem ❤️</h1>
-<p>10 aydır beraberiz ❤️</p>
+
+<p>12 Eylül 2025'ten beri ❤️</p>
+
+<p>10 aydır beraberiz 💕</p>
+
+<button onclick="kalp()">Bana Tıkla ❤️</button>
+
+<script>
+function kalp(){
+for(let i=0;i<20;i++){
+let h=document.createElement("div");
+h.innerHTML="❤️";
+h.style.position="fixed";
+h.style.left=Math.random()*window.innerWidth+"px";
+h.style.top=Math.random()*window.innerHeight+"px";
+h.style.fontSize="30px";
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},2000);
+}
+}
+</script>
+
 </body>
 </html>
