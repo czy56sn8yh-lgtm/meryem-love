@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meryem ❤️</title>
+
+<style>
+body{
+margin:0;
+background:linear-gradient(135deg,#ff5fa2,#ff9ac8);
+font-family:Arial,sans-serif;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+h1{
+font-size:52px;
+margin-top:20px;
+}
+
+p{
+font-size:22px;
+}
+
+#slider{
+width:90%;
+max-width:500px;
+margin:20px auto;
+overflow:hidden;
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,255,255,.4);
+}
+
+#foto{
+width:100%;
+display:block;
+}
+
+.card{
+width:90%;
+max-width:500px;
+margin:15px auto;
+padding:15px;
+background:rgba(255,255,255,.15);
+border-radius:20px;
+backdrop-filter:blur(5px);
+}
+
+button{
+padding:15px 25px;
+font-size:20px;
+border:none;
+border-radius:20px;
+background:white;
+color:#ff4f96;
+font-weight:bold;
+margin:10px;
+cursor:pointer;
+}
+
+.heart{
+position:fixed;
+pointer-events:none;
+z-index:9999;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="sarki.mp3" type="audio/mpeg">
+</audio>
+
+<h1>Meryem ❤️</h1>
+
+<p>12 Eylül 2025'ten beri ❤️</p>
+<p>10 aydır beraberiz 💕</p>
+
+<div class="card">
+<h2>1. Yılımıza Kalan Süre ⏳</h2>
+<p id="sayac"></p>
+</div>
+
+<div id="slider">
+<img id="foto" src="IMG_1285.png">
+</div>
+
+<button onclick="muzik()">🎵 Müziği Başlat</button>
+<button onclick="mesaj()">💌 Özel Mesaj</button>
+<button onclick="kalp()">❤️ Kalp Patlat</button>
+
+<div style="height:50px"></div>
+
+<script>
+
+const fotolar = [
+"IMG_1285.png",
+"0AF2EBBD-3E12-450F-85F3-050D03C8C5F1.png",
+"20546f1b-f2fe-43d1-bae5-0d27661e12b9.jpeg",
+"ce29bc28-e74a-4596-aecb-4359d43b6d0d.jpeg",
+"ef1617d0-4066-4f52-a3c5-649c55bda09e.jpeg"
+];
+
+let sira = 0;
+
+setInterval(()=>{
+sira=(sira+1)%fotolar.length;
+document.getElementById("foto").src=fotolar[sira];
+},3000);
+
+function muzik(){
+document.getElementById("music").play();
+}
+
+function mesaj(){
+alert("Meryem ❤️ Seni çok seviyorum. Seninle geçirdiğim her gün benim için çok değerli. 1. yılımıza çok az kaldı ve nice yılları birlikte geçirmek istiyorum. ❤️");
+}
+
+function sayac(){
+
+const hedef = new Date("2026-09-12T00:00:00").getTime();
+
+const simdi = new Date().getTime();
+
+const fark = hedef - simdi;
+
+const gun = Math.floor(fark/(1000*60*60*24));
+const saat = Math.floor((fark%(1000*60*60*24))/(1000*60*60));
+const dakika = Math.floor((fark%(1000*60*60))/(1000*60));
+const saniye = Math.floor((fark%(1000*60))/1000);
+
+document.getElementById("sayac").innerHTML =
+gun+" gün "+
+saat+" saat "+
+dakika+" dakika "+
+saniye+" saniye ❤️";
+
+}
+
+setInterval(sayac,1000);
+sayac();
+
+function kalp(){
+
+for(let i=0;i<50;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+h.innerHTML="❤️";
+
+h.style.left="50%";
+h.style.top="50%";
+h.style.fontSize=(20+Math.random()*30)+"px";
+
+document.body.appendChild(h);
+
+let x=(Math.random()-0.5)*900;
+let y=(Math.random()-0.5)*900;
+
+h.animate([
+
+{
+transform:"translate(-50%,-50%) scale(0.5)",
+opacity:1
+},
+
+{
+transform:`translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.2)`,
+opacity:0.8
+},
+
+{
+transform:`translate(calc(-50% + ${x*1.2}px), calc(-50% + ${y*1.2}px)) scale(0)`,
+opacity:0
+}
+
+],{
+
+duration:1800,
+easing:"cubic-bezier(.16,1,.3,1)"
+
+});
+
+setTimeout(()=>{
+h.remove();
+},1800);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
