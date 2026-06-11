@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meryem ❤️</title>
+
+<style>
+body{
+margin:0;
+background:linear-gradient(135deg,#ff5fa2,#ff8fc7);
+font-family:Arial,sans-serif;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+h1{
+margin-top:60px;
+font-size:60px;
+}
+
+p{
+font-size:28px;
+}
+
+button{
+padding:18px 35px;
+border:none;
+border-radius:20px;
+font-size:24px;
+cursor:pointer;
+background:white;
+color:#ff3f8e;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Meryem ❤️</h1>
+
+<p>12 Eylül 2025'ten beri ❤️</p>
+
+<p>10 aydır beraberiz 💕</p>
+
+<button onclick="kalp()">Bana Tıkla ❤️</button>
+
+<script>
+
+function kalp(){
+
+for(let i=0;i<50;i++){
+
+let h=document.createElement("div");
+
+h.innerHTML="❤️";
+
+h.style.position="fixed";
+h.style.left=(window.innerWidth/2)+"px";
+h.style.top=(window.innerHeight/2)+"px";
+h.style.fontSize=(20+Math.random()*35)+"px";
+h.style.pointerEvents="none";
+h.style.zIndex="9999";
+
+document.body.appendChild(h);
+
+let x=(Math.random()-0.5)*800;
+let y=(Math.random()-0.5)*800;
+
+h.animate([
+{
+transform:"translate(0,0) scale(1)",
+opacity:1
+},
+{
+transform:`translate(${x}px,${y}px) scale(0)`,
+opacity:0
+}
+],
+{
+duration:1000,
+easing:"ease-out"
+});
+
+setTimeout(()=>{
+h.remove();
+},1000);
+
+}
+}
+
+</script>
+
+</body>
+</html>
